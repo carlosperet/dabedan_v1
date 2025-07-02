@@ -13,9 +13,18 @@ class WorkerCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      child: ListTile(
-        leading: CircleAvatar(backgroundImage: AssetImage(workerImage)),
-        title: Text(workerName),
+      child: SizedBox(
+        height: 50,
+        width: 70,
+        child: ListTile(
+          leading: CircleAvatar(
+            backgroundImage: AssetImage(workerImage),
+            onBackgroundImageError: (_, _) {
+              Icon(Icons.person); // fallback icon
+            },
+          ),
+          title: Text(workerName),
+        ),
       ),
     );
   }
